@@ -1,0 +1,2 @@
+module ArticulosAgregadosHelper
+end

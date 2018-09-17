@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tu Catálogo Pragmatico</h1>
+
+<% cache @productos do %>
+  <% @productos.each do |producto| %>
+    <% cache producto do %>
+      <div class="entry">
+        <%= image_tag(producto.imagen.thumb.url) %>
+        <h3><%= producto.nombre %></h3>
+        <%= sanitize(producto.descripcion) %>
+        <div class="precio_line">
+          <span class="precio"><%= number_to_currency(producto.precio) %></span>
+          <%= button_to 'Agregar al Carrito', articulos_agregados_path(producto_id: producto),
+            remote: true %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

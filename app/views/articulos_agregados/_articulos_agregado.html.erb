@@ -1,0 +1,9 @@
+<% if articulos_agregado == @articulo_actual %>
+  <tr id="current_item">
+<% else %>
+  <tr>
+<% end %>
+  <td><%= articulos_agregado.cantidad %>&times;</td>
+  <td><%= articulos_agregado.producto.nombre %></td>
+  <td class="item_precio"><%= number_to_currency(articulos_agregado.precio_total) %></td>
+</tr>

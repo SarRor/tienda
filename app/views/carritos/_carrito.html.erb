@@ -1,0 +1,14 @@
+<h2>Tu carrito</h2>
+<table>
+  <%= render(carrito.articulos_agregados) %>
+
+  <tr class="total_line">
+    <td colspan="2">Total</td>
+    <td class="total_cell"><%= number_to_currency(carrito.precio_total) %></td>
+  </tr>
+
+</table>
+
+<%= button_to "Comprar", new_pedido_path, method: :get %>
+<%= button_to 'Vaciar carrito', carrito, method: :delete,
+    data: { confirm: '¿Estás seguro de vaciarlo?' } %>

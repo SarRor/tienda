@@ -1,0 +1,42 @@
+<%= form_with(model: pedido, local: true) do |f| %>
+  <% if pedido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+
+      <ul>
+      <% pedido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :direccion %>
+    <%= f.text_field :direccion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telefono %>
+    <%= f.text_field :telefono %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo_de_pago %>
+    <%= f.select :tipo_de_pago, Pedido.tipo_de_pagos.keys, prompt: 'Elige la forma de pago' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Solicita tu pedido' %>
+  </div>
+<% end %>

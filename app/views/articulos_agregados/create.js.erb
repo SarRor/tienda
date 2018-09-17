@@ -1,0 +1,8 @@
+$('#notice').hide();
+
+if ($('#carrito tr').length == 1) { $('#carrito').show('blind', 1000); }
+
+$('#carrito').html("<%=j render(@carrito) %>");
+
+$('#current_item').css({'background-color':'#88ff88'}).
+  animate({'background-color':'#114411'}, 1000);

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Articulos Agregados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cantidad</th>
+      <th>Producto</th>
+      <th>Carrito</th>
+      <th>Pedido</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articulos_agregados.each do |articulos_agregado| %>
+      <tr>
+        <td><%= articulos_agregado.cantidad %></td>
+        <td><%= articulos_agregado.producto %></td>
+        <td><%= articulos_agregado.carrito %></td>
+        <td><%= articulos_agregado.pedido %></td>
+        <td><%= link_to 'Show', articulos_agregado %></td>
+        <td><%= link_to 'Edit', edit_articulos_agregado_path(articulos_agregado) %></td>
+        <td><%= link_to 'Destroy', articulos_agregado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Articulos Agregado', new_articulos_agregado_path %>

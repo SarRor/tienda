@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @articulos_agregado.cantidad %>
+</p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @articulos_agregado.producto %>
+</p>
+
+<p>
+  <strong>Carrito:</strong>
+  <%= @articulos_agregado.carrito %>
+</p>
+
+<p>
+  <strong>Pedido:</strong>
+  <%= @articulos_agregado.pedido %>
+</p>
+
+<%= link_to 'Edit', edit_articulos_agregado_path(@articulos_agregado) %> |
+<%= link_to 'Back', articulos_agregados_path %>
