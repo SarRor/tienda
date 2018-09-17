@@ -28,13 +28,13 @@ class PedidosController < ApplicationController
   # POST /pedidos.json
   def create
     @pedido = Pedido.new(pedido_params)
-
     @pedido.add_articulos_agregados_from_carrito(@carrito)
 
     respond_to do |format|
       if @pedido.save
         Carrito.destroy(session[:carrito_id])
         session[:carrito_id] = nil
+        PedidoMailer.recibido(@pedido).deliver_later
         format.html { redirect_to tienda_inicio_url, notice: 'Gracias por su pedido.' }
         format.json { render :show, status: :created, location: @pedido }
       else

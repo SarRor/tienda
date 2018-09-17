@@ -32,7 +32,7 @@ class ArticulosAgregadosController < ApplicationController
     respond_to do |format|
       if @articulos_agregado.save
         format.html { redirect_to tienda_inicio_url }
-        ormat.js   { @articulo_actual = @articulos_agregado }
+        format.js   { @articulo_actual = @articulos_agregado }
         format.json { render :show, status: :created, location: @articulos_agregado }
       else
         format.html { render :new }
