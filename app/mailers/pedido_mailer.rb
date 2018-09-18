@@ -8,12 +8,12 @@ class PedidoMailer < ApplicationMailer
   def recibido(pedido)
     @pedido = pedido
 
-    mail to: pedido.email, subject: ‘Confirmación de pedido’
+    mail to: pedido.email, subject: ‘Hemos recibido su pedido, en breve lo enviaremos a su domicilio.’
   end
 
   def enviado(pedido)
     @pedido = pedido
 
-    mail to: pedido.email, subject: ‘Compra enviada’
+    mail to: pedido.email, subject: ‘Hemos enviado a su domicilio los productos que compró’
   end
 end
